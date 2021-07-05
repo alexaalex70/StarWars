@@ -1,5 +1,5 @@
-import { Card as CardMUI, CardContent } from "@material-ui/core";
-import styled from "styled-components";
+import { Card, CardContent } from "@material-ui/core";
+import { useStyles } from "../../../assets/mui-styles/card-styles";
 import { CardContent as Content } from "../../index";
 
 interface IPeopleCard {
@@ -15,15 +15,10 @@ interface IContent {
   edited: string;
 }
 
-const Card = styled(CardMUI)`
-  background: #aae4ff;
-  padding: 16px;
-  border: 1px solid black;
-`;
-
 const PeopleCard = ({ cardTitle, cardContent }: IPeopleCard) => {
+  const classes = useStyles();
   return (
-    <Card>
+    <Card className={classes.card}>
       <CardContent>
         <Content cardTitle={cardTitle} cardContent={cardContent}></Content>
       </CardContent>

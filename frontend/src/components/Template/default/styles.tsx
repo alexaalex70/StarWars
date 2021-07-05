@@ -1,14 +1,13 @@
-import styled from "styled-components";
+import { makeStyles } from "@material-ui/core";
 
-const DefaultPageContainer = styled.div`
-  padding: 24px;
-`;
-
-const DefaultGridView = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(280px, 1fr));
-  grid-gap: 20px;
-  align-items: stretch;
-`;
-
-export { DefaultPageContainer, DefaultGridView };
+export const useStyles = makeStyles(() => ({
+  defaultPageContainer: {
+    padding: "24px",
+  },
+  defaultGridView: {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(280px, 1fr))",
+    gridGap: "20px",
+    alignItems: "stretch",
+  },
+}));

@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { format } from "date-fns";
-import {
-  DefaultPageContainer,
-  DefaultGridView,
-} from "../../components/Template/default/styles";
+import { useStyles } from "../../components/Template/default/styles";
 import { PeopleCard } from "../../components";
 
 interface IPeople {
@@ -36,6 +33,7 @@ interface IPeopleCardData {
 
 const People = () => {
   const [peopleData, setPeopleData] = useState<IPeople[]>([]);
+  const classes = useStyles();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,10 +66,10 @@ const People = () => {
   });
 
   return (
-    <DefaultPageContainer>
+    <div className={classes.defaultPageContainer}>
       <h3>First Page of People from StarWars API</h3>
-      <DefaultGridView>{createPeopleCards}</DefaultGridView>
-    </DefaultPageContainer>
+      <div className={classes.defaultGridView}>{createPeopleCards}</div>
+    </div>
   );
 };
 
